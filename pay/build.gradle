@@ -1,8 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
 }
-
+//apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.LunHongShao'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -52,4 +54,18 @@ dependencies {
     debugImplementation 'com.alipay.sdk:alipaysdk-android:15.8.14@aar'
     releaseCompileOnly 'com.alipay.sdk:alipaysdk-android:15.8.14@aar'
 
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.jitpack'
+                artifactId = 'simplePay'
+                version = '1.0.0'
+            }
+        }
+    }
 }
