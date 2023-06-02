@@ -45,4 +45,9 @@ class MainActivity : AppCompatActivity() {
          */
         handler?.pay(this, reqData)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        PayManager.clearAllReference()
+    }
 }
