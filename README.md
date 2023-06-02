@@ -1,4 +1,4 @@
-# simplePay
+# simplePay（支付宝支付，微信支付）
 a library for pay of android (include aliPay&amp;wechatPay)
 
 一个封装了支付宝和和微信支付的工具库，主要为了方便无脑接入微信支付和支付宝支付，屏蔽了繁杂的参数细节和意义，约束了支付行为，只需按照库方法一步一步调用即可完成！
