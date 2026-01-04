@@ -4,12 +4,13 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    namespace  "com.hong.simplepay"
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.hong.simplepay"
         minSdk 21
-        targetSdk 32
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
@@ -23,11 +24,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 }
 
@@ -42,6 +43,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.alipay.sdk:alipaysdk-android:15.8.14@aar'
     implementation  'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0'//微信官方SDK依赖库
-//    implementation project(path: ':pay')
-    implementation 'com.github.LunHongShao:simplePay:1.0.1'
+    implementation project(path: ':pay')
+//    implementation 'com.github.LunHongShao:simplePay:1.0.1'
 }

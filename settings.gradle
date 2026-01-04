@@ -17,4 +17,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "SimplePay"
 include ':app'
-//include ':pay'
+include ':pay'
