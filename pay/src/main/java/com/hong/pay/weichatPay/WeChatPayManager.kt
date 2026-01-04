@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import androidx.core.content.ContextCompat
 import com.tencent.mm.opensdk.constants.ConstantsAPI
 import com.tencent.mm.opensdk.modelpay.PayReq
 import com.tencent.mm.opensdk.openapi.IWXAPI
@@ -29,11 +30,11 @@ class WeChatPayManager(val ctx: Context, val appId: String) : PayImpl() {
 
     init {
         wxApi.registerApp(appId)
-        ctx.registerReceiver(object : BroadcastReceiver() {
+        ContextCompat.registerReceiver(ctx, object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
                 wxApi.registerApp(appId)
             }
-        }, IntentFilter(ConstantsAPI.ACTION_REFRESH_WXAPP))
+        }, IntentFilter(ConstantsAPI.ACTION_REFRESH_WXAPP), ContextCompat.RECEIVER_EXPORTED)
 
     }
 
